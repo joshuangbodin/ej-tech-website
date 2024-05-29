@@ -12,3 +12,33 @@ body{
     overflow-x: hidden;
     
 }
+
+.img{
+    @apply h-72 md:h-80 object-cover w-full rounded-xl ;
+}
+
+.img1{
+    @apply h-72 md:h-80 object-center object-cover w-full rounded-xl ;
+}
+
+.swiper-wrapper{
+    width:50%
+}
+
+.swiper-button-prev, .swiper-button-next{
+    background-color: rgba(216, 99, 4, .1);
+    width: 25px !important;
+    height: 25px !important;
+    border-radius: 50% ;
+    
+
+}
+.swiper-button-prev:after , .swiper-button-next:after{
+    font-size: 18px !important;
+    font-weight: 300 !important;
+    color: white;
+}
+
+.swiper-pagination-bullet{
+    background: rgb(216, 99, 4) !important;
+}
