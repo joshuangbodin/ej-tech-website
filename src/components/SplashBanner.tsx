@@ -7,7 +7,7 @@ type Props = {};
 const SplashBanner: React.FC<Props> = ({}: Props) => {
   return (
     <div className="relative w-full  h-screen items-center flex-col md:flex-row overflow-y-hidden capitalize flex md:justify-between overflow-x-hidden ">
-      <div className="    w-1/2 flex flex-col h-screen justify-center md:pl-12 text-3xl text-purple-950  lg:text-6xl font-bold">
+      <div className=" mt-10 md:mt-0  w-1/2 flex flex-col h-screen justify-center md:pl-12 text-3xl text-purple-950  lg:text-6xl font-bold">
         <div className="flex w-full justify-center md:justify-start gap-3">
           <span className="w-22 h-8 border border-orange-600 text-orange-600 rounded-full flex justify-center items-center p-2">
             <p>Modern</p>

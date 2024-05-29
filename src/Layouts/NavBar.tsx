@@ -1,60 +1,55 @@
-import { MenuIcon, PhoneIcon } from "lucide-react";
-import React, { useState } from "react";
+import { HomeIcon, PackageIcon,  PhoneIcon } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import "../App.css"
 
 interface Props {}
 
-const NavBar: React.FC<Props> = ({}: Props) => {
-  console.log(window.pageYOffset);
-  const [left, setLeft] = useState(false)
-  const [style, setStyle] = useState(
-    "flex bg-white fixed w-full top-0 justify-between py-4 px-2 h-20 z-90 font-semibold text-center items-center  "
+const NavBar = ({}: Props) => {
+  const [top, setTop] = useState(
+    "w-full  fixed top-0 flex justify-between z-50 font-semibold  p-4 h-[80px] text-purple-950 text-lg bg-slate-50 border-b  transition-all ease-in-out delay-700 "
   );
-  /*window.addEventListener("scroll", () => {
-    if (window.pageYOffset != 0) {
-      setStyle(
-        "flex bg-white justify-between fixed w-full top-0 py-2 z-90 px-2 h-16 font-semibold text-center items-center  shadow"
+  let cp = window.pageYOffset;
+  window.addEventListener("scroll", () => {
+    let pp = window.pageYOffset;
+    if (cp < pp) {
+      setTop(
+        "w-full  fixed top-[-80px] flex justify-between z-50 font-semibold  p-4 h-[80px] text-purple-950 text-lg bg-slate-50 border-b  "
       );
     } else {
-      setStyle(
-        "flex bg-white fixed w-full top-0 justify-between py-4 px-2 h-20 z-90 font-semibold text-center items-center  "
+      setTop(
+        "w-full  fixed top-0 flex justify-between z-50 font-semibold  p-4 h-[80px] text-purple-950 text-lg bg-slate-50 border-b  transition-all ease-in-out delay-300 "
       );
     }
-  });*/
-
+  });
   return (
-    <nav className={style}>
-      <div className="pt-2  text-purple-950 ">
-        {/*<img src="" alt="" />*/}
-        <h3>EJ-TECH</h3>
-      </div>
-      <div className="hidden md:flex">
-        <ul className="flex gap-4  text-purple-950  pt-2">
-          <Link to="/" className="text-center  hover:text-purple-700">
-            Home
+    <div>
+      <nav className={top}>
+        <span className="h-full ">
+          <h3>EJ-TECH</h3>
+        </span>
+
+        <span className="flex gap-4 pt-1">
+          <Link className="flex text-md hover:text-orange-600 mr-2" to={"/"}>
+            <span className="hidden md:flex">Home</span><span className="flex md:hidden"><HomeIcon/></span>
           </Link>
-          <Link to="/services" className="text-center hover:text-purple-700">
-            Services
+          <Link className="text-md hover:text-orange-600" to={"/services"}>
+          <span className="hidden md:flex">Services</span><span className="flex md:hidden"><PackageIcon/></span>
           </Link>
-        </ul>{" "}
-      </div>
-      <div>
-        <div className="hidden md:flex gap-4">
-          <span className=" w-10 h-10 flex justify-center items-center bg-purple-950 text-white rounded-full hover:bg-purple-700">
-            <PhoneIcon className="" />
+        </span>
+
+        <Link
+          className="flex gap-2 hover:text-orange-600"
+          to={"tel:+2349054783583"}
+        >
+          <span className="w-8 h-8 bg-purple-950 flex justify-center items-center text-white rounded-full ">
+            <PhoneIcon />
           </span>
-          <Link
-            className="text-center pt-2  text-purple-950 hover:text-purple-700"
-            to="tel: +2348168085372"
-          >
-            +2348168085372
-          </Link>
-        </div>
-      </div>
-      
-      
-    </nav>
+          <strong className="font-semibold hidden md:flex">
+            +2349054783583
+          </strong>
+        </Link>
+      </nav>
+    </div>
   );
 };
 
