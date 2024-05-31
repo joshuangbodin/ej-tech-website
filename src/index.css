@@ -5,7 +5,7 @@
 @tailwind utilities; 
 
 *{
-    font-family: "Alegreya";
+    font-family: "Alegreya" , sans-serif;
     font-size: 18px;
 }
 body{
@@ -13,6 +13,9 @@ body{
     
 }
 
+
+
+/*swiper styles*/
 .img{
     @apply h-72 md:h-80 object-cover w-full rounded-xl ;
 }
@@ -20,6 +23,9 @@ body{
 .img1{
     @apply h-72 md:h-80 object-center object-cover w-full rounded-xl ;
 }
+
+
+
 
 .swiper-wrapper{
     width:50%
@@ -41,4 +47,32 @@ body{
 
 .swiper-pagination-bullet{
     background: rgb(216, 99, 4) !important;
+}
+
+
+
+
+
+/*dissapearing text*/
+
+.textbox{
+    @apply w-full h-72 md:h-80 p-3  gap-4 flex flex-col capitalize justify-center md:w-1/2 md:order-1 text-gray-600 font-medium  text-2xl md:text-4xl;
+    opacity: 0;
+    scale: 80%;
+    animation:appear linear forwards;
+    animation-timeline: view(700px 100px) ;
+
+}
+.inf{
+    @apply w-full md:w-1/2 text-gray-900 h-56 lg:w-1/3 flex flex-col  gap-3 justify-center items-center;
+    opacity: 0;
+    scale: 80%;
+    animation:appear linear forwards;
+    animation-timeline: view(700px 100px) ;
+}
+@keyframes appear {
+    to{
+        opacity: 100;
+        scale: 100%;
+    }
 }

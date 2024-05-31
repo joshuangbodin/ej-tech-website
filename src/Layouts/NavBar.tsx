@@ -41,7 +41,7 @@ const NavBar = ({}: Props) => {
           className="flex md:pr-12 gap-2 hover:text-orange-600"
           to={"tel:+2349054783583"}
         >
-          <span className="w-8 h-8 bg-purple-950 flex justify-center hover:bg-orange-600 items-center text-white rounded-full ">
+          <span className="w-8 h-8 bg-purple-950 flex justify-center hover:bg-orange-600 transition-all ease-linear delay-300 items-center text-white rounded-full ">
             <PhoneIcon />
           </span>
           <strong className="font-semibold hidden md:flex">

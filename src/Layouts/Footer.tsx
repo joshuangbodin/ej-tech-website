@@ -4,7 +4,17 @@ type Props = {}
 
 const Footer = (props: Props) => {
   return (
-    <div>Footer</div>
+    <div className='w-full h-[500px]'>
+      <div>
+
+      </div>
+      <div>
+
+      </div>
+      <div>
+        
+      </div>
+    </div>
   )
 }
 

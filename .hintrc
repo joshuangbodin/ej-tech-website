@@ -8,6 +8,12 @@
       {
         "list": "off"
       }
+    ],
+    "axe/parsing": [
+      "default",
+      {
+        "marquee": "off"
+      }
     ]
   }
 }
