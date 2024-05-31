@@ -10,7 +10,6 @@ type Props = {};
 const Slider: React.FC<Props> = ({}: Props) => {
   return (
     <Swiper
-      
       spaceBetween={30}
       centeredSlides={true}
       autoplay={{

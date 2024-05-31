@@ -16,7 +16,7 @@ const Target: React.FC = ({}: Props) => {
           alt=""
         />
         <ul className="ta">
-          {ta.map((taitem,index) => (
+          {ta.map((taitem, index) => (
             <li key={index}>{taitem}</li>
           ))}{" "}
         </ul>
