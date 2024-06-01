@@ -18,8 +18,8 @@ const Offers = ({}: Props) => {
                 {item.name}
               </p>
               <ul className=" flex flex-col gap-1 justify-center relative   text-gray-500 list-disc text-sm">
-                {item.more?.map((itemi) => (
-                  <li>{itemi}</li>
+                {item.more?.map((itemi, index) => (
+                  <li key={index}>{itemi}</li>
                 ))}
               </ul>
             </div>
