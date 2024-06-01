@@ -11,7 +11,7 @@ const Target: React.FC = ({}: Props) => {
       </h3>
       <div className="flex flex-col md:flex-row justify-center gap-10 items-center w-5/6 ">
         <img
-          src="src\assets\GRAPHICSDDESIGN.png"
+          src="GRAPHICSDDESIGN.png"
           className=" w-[80%] md:w-1/3"
           alt=""
         />

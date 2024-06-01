@@ -48,7 +48,7 @@ const Services: React.FC<Props> = ({}: Props) => {
               <div className="w-full lg:w-2/5 h-full bg-[#ffff]/10  p-4 rounded-2xl backdrop-blur-xl hover:bg-[#ffff]/80">
                 <img
                   className="rounded-2xl w-full h-full object-cover"
-                  src="src/assets/code3.jpg"
+                  src="code3.jpg"
                   alt=""
                 />
               </div>
@@ -87,7 +87,7 @@ const Services: React.FC<Props> = ({}: Props) => {
               <div className="w-full lg:w-2/5 h-full bg-[#ffff]/10 lg:order-1  p-4 rounded-2xl backdrop-blur-xl  hover:bg-[#ffff]/80">
                 <img
                   className="rounded-2xl w-full h-full object-cover"
-                  src="src/assets/graphics1.jpg"
+                  src="graphics1.jpg"
                   alt=""
                 />
               </div>
@@ -126,7 +126,7 @@ const Services: React.FC<Props> = ({}: Props) => {
               <div className="w-full lg:w-2/5 h-full bg-[#ffff]/10  p-4 rounded-2xl backdrop-blur-xl hover:bg-[#ffff]/80">
                 <img
                   className="rounded-2xl w-full h-full object-cover"
-                  src="src/assets/social.jpg"
+                  src="social.jpg"
                   alt=""
                 />
               </div>

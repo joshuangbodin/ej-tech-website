@@ -41,7 +41,7 @@ const SplashBanner: React.FC<Props> = ({}: Props) => {
       <div className="flex w-1/2 flex-5 h-screen justify-center items-center">
         <img
           className="relative md:top-20 mr-0 md:mr-20"
-          src="src\assets\splashImage.png"
+          src="splashImage.png"
           alt=""
         />
       </div>

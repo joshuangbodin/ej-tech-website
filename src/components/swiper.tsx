@@ -24,16 +24,16 @@ const Slider: React.FC<Props> = ({}: Props) => {
       className="mySwiper"
     >
       <SwiperSlide>
-        <img src="src/assets/graphics2.jpg" className="img" alt="" />
+        <img src="graphics2.jpg" className="img" alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="src/assets/code3.jpg" className="img" alt="" />
+        <img src="code3.jpg" className="img" alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="src/assets/image4.jpg" className="img" alt="" />
+        <img src="image4.jpg" className="img" alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="src/assets/image1.jpg" className="img1" alt="" />
+        <img src="image1.jpg" className="img1" alt="" />
       </SwiperSlide>
     </Swiper>
   );

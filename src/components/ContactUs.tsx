@@ -38,7 +38,7 @@ const ContactUs: React.FC = ({}: Props) => {
           </button>
         </form>
         <div className="w-full md:w-1/2">
-          <img src="src\assets\Black Clay Isometric Apple Devices.png" className="imgSkew" alt="" />
+          <img src="Black Clay Isometric Apple Devices.png" className="imgSkew" alt="" />
         </div>
       </div>
     </section>
