@@ -1,10 +1,9 @@
-import { Facebook, Instagram } from "lucide-react";
-import React from "react";
+
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
 type Props = {};
 
-const Footer = (props: Props) => {
+const Footer = ({}: Props) => {
   return (
     <div className="w-full h-[300px]  bg-purple-950 p-6 flex z-90 flex-col justify-center relative  text-white">
       <h3>EJ-TECH</h3>
