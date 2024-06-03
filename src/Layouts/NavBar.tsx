@@ -26,11 +26,7 @@ const NavBar = ({}: Props) => {
       <nav className={top}>
         <span className="h-full flex justify-center items-center ">
           <img src="public\logo ejtech.png" className="h-[50px]" alt="" />
-          <h3 style={
-            {
-              fontFamily:"Open Sans",
-            }
-          }>EJ-TECH</h3>
+          <h3 >EJ-TECH</h3>
         </span>
 
         <span className="flex gap-4 pt-1">
