@@ -26,8 +26,8 @@ type Props = {};
 const Services: React.FC<Props> = ({}: Props) => {
   return (
     <div className=" flex justify-center items-center">
-      <div className="w-full min-h-screen h-[calc(550vh)]  absolute  bg-gradient-to-t from-purple-950 to-orange-600 rounded-2xl bg-orange-600 top-0"></div>
-      <div className="w-full p-12 relative  min-h-[calc(437vh)] h-[500vh]  z-30 mt-14 bg-gradient-to-r from-[#ffff]/90 to-[#ffff]/60 rounded-2xl flex flex-col  lg:gap-20 backdrop-blur-xl">
+      <div className="w-full min-h-screen h-[calc(550dvh)]  absolute  bg-gradient-to-t from-purple-950 to-orange-600 rounded-2xl bg-orange-600 top-0"></div>
+      <div className="w-full p-12 relative  min-h-[calc(437dvh)] h-[500dvh]  z-30 mt-14 bg-gradient-to-r from-[#ffff]/90 to-[#ffff]/60 rounded-2xl flex flex-col  lg:gap-20 backdrop-blur-xl">
         <div>
           <h3 className="text-purple-900 text-xl md:text-3xl font-bold capitalize">
             Service DashBoard
@@ -39,15 +39,15 @@ const Services: React.FC<Props> = ({}: Props) => {
           <div className="flex flex-col justify-center items-center text-purple-900 font-bold"><p><CountUp duration={20} className="text-xl md:text-3xl " end={35}></CountUp>+</p><p>Tools</p></div>
         </div>
 
-        <div className="flex flex-col gap-[95vh] md:gap-[50vh] lg:gap-20">
+        <div className="flex flex-col gap-[100dvh] md:gap-[50dvh] lg:gap-20">
           <div className=" w-full h-72 lg:h-96  flex flex-col ">
             <h3 className="text-purple-900 font-bold capitalize ">
               Web Development
             </h3>
             <div className="flex flex-col lg:flex-row gap-8 h-full w-full">
-              <div className="w-full lg:w-2/5 h-full bg-[#ffff]/10  p-4 rounded-2xl backdrop-blur-xl hover:bg-[#ffff]/80">
+              <div className="w-full lg:w-2/5 h-full bg-[#ffff]/10  p-4 rounded-2xl backdrop-blur-xl hover:bg-[#ffff]/80 mt-40 md:mt-0">
                 <img
-                  className="rounded-2xl w-full h-full object-cover"
+                  className="rounded-2xl w-full h-full object-cover" 
                   src="code3.jpg"
                   alt=""
                 />
@@ -123,7 +123,7 @@ const Services: React.FC<Props> = ({}: Props) => {
               Additional Services
             </h3>
             <div className="flex flex-col lg:flex-row gap-8 h-full w-full">
-              <div className="w-full lg:w-2/5 h-full bg-[#ffff]/10  p-4 rounded-2xl backdrop-blur-xl hover:bg-[#ffff]/80">
+              <div className="w-full lg:w-2/5 h-full bg-[#ffff]/10  p-4 rounded-2xl backdrop-blur-xl hover:bg-[#ffff]/80 mt-40 md:mt-0">
                 <img
                   className="rounded-2xl w-full h-full object-cover"
                   src="social.jpg"
