@@ -86,7 +86,7 @@ const Services: React.FC<Props> = ({}: Props) => {
             <FaFigma className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
             <FaCamera className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
           </Card>
-          <Card subservices={services[2].more} name="Additional Services" img="code3.jpg">
+          <Card subservices={services[2].more} name="Additional Services" img="social.jpg">
             <FaFacebook className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
             <FaIntercom className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
             <FaGithub className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
