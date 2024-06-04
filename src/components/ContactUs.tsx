@@ -5,9 +5,9 @@ type Props = {};
 const ContactUs: React.FC = ({}: Props) => {
   return (
     <section className="w-full flex-col md:flex-row md flex justify-center mt-40 mb-40">
-      <div className="flex flex-col md:flex-row w-full justify-center items-center">
+      <div className="flex flex-col md:flex-row w-full justify-center items-center gap-10 md:gap-20">
         <form
-          className="w-2/3 md:w-3/4 lg:w-1/5 flex flex-col order-1 p-4 gap-6  rounded-xl"
+          className="w-4/5 md:w-3/4 lg:w-2/5 flex flex-col order-1 p-4 gap-6  rounded-xl"
           action="mailto:ejtechofficial@gmail.com"
         >
           <h3 className="text-purple-950 font-bold text-3xl">Contact Us </h3>
@@ -37,7 +37,7 @@ const ContactUs: React.FC = ({}: Props) => {
             Submit
           </button>
         </form>
-        <div className="w-full md:w-1/2">
+        <div className="w-4/6 md:w-1/3 bg-purple-950 rounded-full  md:rounded-3xl md:h-4/5 flex justify-center items-center">
           <img src="Black Clay Isometric Apple Devices.png" className="imgSkew" alt="" />
         </div>
       </div>
