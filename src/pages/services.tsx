@@ -27,8 +27,8 @@ type Props = {};
 const Services: React.FC<Props> = ({}: Props) => {
   return (
     <div className=" flex justify-center items-center">
-      <div className="w-full min-h-screen h-[calc(440dvh)] md:h-[380vh]  absolute  bg-gradient-to-t from-purple-950 to-orange-600 rounded-2xl bg-orange-600 top-0"></div>
-      <div className="w-full p-6 relative   h-[400dvh] md:h-[350vh] z-30 mt-14 bg-gradient-to-r from-[#ffff]/90 to-[#ffff]/60 rounded-2xl flex flex-col  lg:gap-20 backdrop-blur-xl">
+      <div className="w-full min-h-screen h-[calc(540dvh)] md:h-[380vh]  absolute  bg-gradient-to-t from-purple-950 to-orange-600 rounded-2xl bg-orange-600 top-0"></div>
+      <div className="w-full p-6 relative   h-[500dvh] md:h-[350vh] z-30 mt-14 bg-gradient-to-r from-[#ffff]/90 to-[#ffff]/60 rounded-2xl flex flex-col  lg:gap-20 backdrop-blur-xl">
         <div>
           <h3 className="text-purple-900 text-xl md:text-3xl font-bold capitalize">
             Service DashBoard
