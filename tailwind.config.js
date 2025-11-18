@@ -39,6 +39,7 @@ export default {
        fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
+        body : ["Poppins" , "sans-serif"]
       },
     
 

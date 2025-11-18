@@ -25,12 +25,12 @@ const AboutUs: React.FC<Props> = ({}: Props) => {
           </span>
 
           {/* Headline */}
-          <h2 className="text-xl md:text-4xl font-extrabold text-white mb-4 leading-snug">
+          <h2 className="text-xl md:text-4xl font-bold text-white mb-4 leading-snug">
             Empowering businesses to thrive in the digital world
           </h2>
 
           {/* Description */}
-          <p className="text-gray-300 text-xs leading-[2] md:text-lg mb-6">
+          <p className="text-gray-300 text-xs leading-[2] md:text-md mb-6">
             We provide modern, effective, and visually striking web development
             and graphic design solutions that increase engagement, growth, and
             brand visibility.
@@ -52,7 +52,7 @@ const AboutUs: React.FC<Props> = ({}: Props) => {
             </Link>
             <Link
               to="/"
-              className="px-4 py-2 text-sm bg-brand-purpleLight text-white rounded-full bg-gray-900  border border-gray-800 hover:bg-accent-orange hover:text-black transition-all duration-300"
+              className="px-4 py-2 text-sm  text-white rounded-full bg-gray-900  border border-gray-800 hover:bg-accent-orange hover:text-black transition-all duration-300"
             >
               Digital Services
             </Link>
