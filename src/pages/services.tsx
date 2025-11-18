@@ -1,104 +1,77 @@
-import React from "react";
-import {
-  FaCamera,
-  FaCss3,
-  FaDesktop,
-  FaFacebook,
-  FaFigma,
-  FaGithub,
-  FaGoogle,
-  FaHtml5,
-  FaIntercom,
-  FaJs,
-  FaMailBulk,
-  FaNodeJs,
-  FaPaintBrush,
-  FaPhotoVideo,
-  FaReact,
-  FaVuejs,
-} from "react-icons/fa";
+import React, { useState } from "react";
 import { services } from "../data/home";
-import { FaPalette, FaWebflow } from "react-icons/fa6";
-import CountUp from "react-countup";
-import Card from "../components/card";
 
 type Props = {};
 
-const Services: React.FC<Props> = ({}: Props) => {
+const ServicesPage: React.FC<Props> = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredServices = services.filter((service) =>
+    service.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className=" flex justify-center items-center">
-      <div className="w-full min-h-screen h-[calc(640dvh)] md:h-[380vh]  absolute  bg-gradient-to-t from-purple-950 to-orange-600 rounded-2xl bg-orange-600 top-0"></div>
-      <div className="w-full p-6 relative   h-[600dvh] md:h-[350vh] z-30 mt-14 bg-gradient-to-r from-[#ffff]/90 to-[#ffff]/60 rounded-2xl flex flex-col  lg:gap-20 backdrop-blur-xl">
-        <div>
-          <h3 className="text-purple-900 text-xl md:text-3xl font-bold capitalize">
-            Service DashBoard
-          </h3>
-        </div>
-        <div className=" flex w-full p-4 bg-[#ffff]/60 rounded-xl justify-between items-center h-32 mb-14 md:mb-8 px-2 md:px-12 lg:px-20">
-          <div className="flex flex-col justify-center items-center text-purple-900 font-bold">
-            <p>
-              <CountUp
-                duration={20}
-                className="text-xl md:text-3xl "
-                end={3}
-              ></CountUp>
-              +
-            </p>
-            <p>Services</p>
-          </div>
-          <div className="flex flex-col justify-center items-center text-purple-900 font-bold">
-            <p>
-              <CountUp
-                duration={20}
-                className="text-xl md:text-3xl "
-                end={21}
-              ></CountUp>
-              +
-            </p>
-            <p>Sub-Services</p>
-          </div>
-          <div className="flex flex-col justify-center items-center text-purple-900 font-bold">
-            <p>
-              <CountUp
-                duration={20}
-                className="text-xl md:text-3xl "
-                end={35}
-              ></CountUp>
-              +
-            </p>
-            <p>Tools</p>
-          </div>
-        </div>
-        <div className=" flex flex-col gap-12"> 
-          <Card subservices={services[0].more} name="Web Development" img="code3.jpg">
-            <FaHtml5 className="text-5xl text-purple-950 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaJs className="text-5xl text-purple-950 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaCss3 className="text-5xl text-purple-950 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaReact className="text-5xl text-purple-950 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaVuejs className="text-5xl text-purple-950 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaNodeJs className="text-5xl text-purple-950 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-          </Card>
-          <Card subservices={services[1].more} name="Graphic Design" img="graphics1.jpg">
-            <FaPhotoVideo className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaPaintBrush className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaPalette className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaDesktop className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaFigma className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaCamera className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-          </Card>
-          <Card subservices={services[2].more} name="Additional Services" img="social.jpg">
-            <FaFacebook className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaIntercom className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaGithub className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaGoogle className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaWebflow className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-            <FaMailBulk className="text-5xl text-purple-900 hover:text-orange-600 transition-all ease-linear delay-150 cursor-pointer hover:skew-y-6 " />
-          </Card>
-        </div>
-        
+    <section className="w-full min-h-screen px-6 md:px-12 py-20 flex flex-col items-center ">
+      {/* Top Section */}
+      <div className="w-full max-w-7xl mb-12 text-center">
+        <p className=" mb-2">Home / Services</p>
+        <h1 className="text-4xl md:text-5xl font-extrabold ">Our Services</h1>
+        <p className=" mt-2 md:text-lg">
+          Explore the wide range of services we offer to help your business
+          grow.
+        </p>
       </div>
-    </div>
+
+      {/* Search Bar */}
+      <div className="w-full max-w-4xl mb-12">
+        <input
+          type="text"
+          placeholder="Search services..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+        />
+      </div>
+
+      {/* Service Cards */}
+      <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filteredServices.length > 0 ? (
+          filteredServices.map((service) => (
+            <a
+              key={service.name}
+              href="#"
+              className=" rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group"
+            >
+              {/* Image */}
+              <div className="h-48 w-full overflow-hidden">
+                <img
+                  src={
+                    service.more[0]?.includes("Web")
+                      ? "code3.jpg"
+                      : "graphics1.jpg"
+                  }
+                  alt={service.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="p-6 flex flex-col gap-3">
+                <h3 className="text-xl font-bold ">{service.name}</h3>
+                <p className=" text-sm md:text-base line-clamp-4">
+                  {service.more?.join(", ")}
+                </p>
+              </div>
+            </a>
+          ))
+        ) : (
+          <p className="text-gray-500 col-span-full text-center">
+            No services found.
+          </p>
+        )}
+      </div>
+    </section>
   );
 };
 
-export default Services;
+export default ServicesPage;
