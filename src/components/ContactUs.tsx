@@ -6,10 +6,9 @@ const ContactUs: React.FC<Props> = ({}: Props) => {
   return (
     <section className="w-full bg-black pt-32 pb-32 px-6 md:px-12 flex flex-col items-center">
       <div className="flex flex-col md:flex-row gap-12 w-full max-w-7xl justify-center items-start">
-
         {/* Contact Form */}
         <form
-          className="w-full md:w-1/2 flex flex-col gap-6 bg-gray-900/40 backdrop-blur-md p-8 rounded-2xl shadow-lg"
+          className="w-full md:w-1/2 flex flex-col gap-6 md:bg-gray-900/40 backdrop-blur-md md:p-8 rounded-2xl shadow-lg"
           action="mailto:ejtechofficial@gmail.com"
         >
           <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
@@ -36,7 +35,7 @@ const ContactUs: React.FC<Props> = ({}: Props) => {
 
           <button
             type="submit"
-            className="h-12 bg-orange-500 text-gray-900 font-semibold rounded-full hover:bg-gray-900 hover:text-orange-500 border border-orange-500 transition-all duration-300 shadow-md"
+            className="h-12 bg-orange-600/70 text-white font-semibold rounded-xl hover:bg-gray-900 hover:text-orange-500 border border-orange-500/60 transition-all duration-300 shadow-md"
           >
             Submit
           </button>
@@ -52,7 +51,6 @@ const ContactUs: React.FC<Props> = ({}: Props) => {
             title="Location Map"
           ></iframe>
         </div>
-
       </div>
     </section>
   );

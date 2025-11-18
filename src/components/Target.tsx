@@ -9,10 +9,10 @@ const Target: React.FC<Props> = ({}) => {
     <section className="w-full overflow-x-hidden bg-black pt-40 flex flex-col">
       {/* Sticky Header */}
       <div className="sticky top-0 z-10 bg-black backdrop-blur-sm text-center py-16">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h2 className="text-xl md:text-5xl font-extrabold text-white tracking-tight">
           Our Target Audience
         </h2>
-        <p className="text-gray-400 mt-4 text-md md:text-lg max-w-2xl mx-auto">
+        <p className="text-gray-400 mt-4 text-xs leading-[2] md:text-lg max-w-2xl mx-auto">
           We collaborate with a wide range of clients aiming to elevate their
           digital presence and make a lasting impact.
         </p>

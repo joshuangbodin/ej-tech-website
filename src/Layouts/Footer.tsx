@@ -5,9 +5,18 @@ import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   const socialLinks = [
-    { icon: <FaFacebook />, href: "https://www.facebook.com/profile.php?id=61559895644433&mibextid=LQQJ4d" },
-    { icon: <FaInstagram />, href: "https://www.instagram.com/ejtechofficial?igsh=cWFiOHlyNGp5czZv&utm_source=qr" },
-    { icon: <FaTiktok />, href: "https://www.tiktok.com/@ejtechofficial?_t=8mmP2nHHOgI&_r=1" },
+    {
+      icon: <FaFacebook />,
+      href: "https://www.facebook.com/profile.php?id=61559895644433&mibextid=LQQJ4d",
+    },
+    {
+      icon: <FaInstagram />,
+      href: "https://www.instagram.com/ejtechofficial?igsh=cWFiOHlyNGp5czZv&utm_source=qr",
+    },
+    {
+      icon: <FaTiktok />,
+      href: "https://www.tiktok.com/@ejtechofficial?_t=8mmP2nHHOgI&_r=1",
+    },
   ];
 
   const pages = [
@@ -25,16 +34,18 @@ const Footer: React.FC = () => {
       {/* Logo */}
       <div className="flex items-center gap-3 mb-8">
         <div className="w-12 h-12  rounded-lg flex justify-center items-center shadow-md">
-          <img src="/logo.png"/>
+          <img src="/logo.png" />
         </div>
-        <h2 className="text-2xl md:text-3xl font-bold tracking-wide">EJ-TECH</h2>
+        <h2 className="text-xl md:text-3xl font-bold tracking-wide">EJTECH</h2>
       </div>
 
       {/* Main Grid */}
       <div className="flex flex-col md:flex-row md:justify-between gap-12">
         {/* Socials */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-xl font-semibold text-orange-500 mb-4">Follow Us</h3>
+          <h3 className="text-sm md:text-xl font-semibold text-orange-500 mb-4">
+            Follow Us
+          </h3>
           <div className="flex gap-6">
             {socialLinks.map((social, idx) => (
               <motion.a
@@ -53,7 +64,7 @@ const Footer: React.FC = () => {
 
         {/* Pages */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-xl font-semibold text-orange-500 mb-4">Pages</h3>
+          <h3 className="text-sm md:text-xl font-semibold text-orange-500 mb-4">Pages</h3>
           <ul className="flex flex-col gap-3">
             {pages.map((page, idx) => (
               <motion.li
@@ -63,7 +74,7 @@ const Footer: React.FC = () => {
               >
                 <Link
                   to={page.path}
-                  className="text-gray-300 hover:text-orange-500 transition-colors duration-300"
+                  className="text-gray-300 text-xs md:text-sm hover:text-orange-500 transition-colors duration-300"
                 >
                   {page.name}
                 </Link>
@@ -74,9 +85,11 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="w-full border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-        &copy; 2025 EJ-TECH. All rights reserved.{" "}
-        <Link to="" className="text-orange-500 hover:underline">Privacy Policy</Link>
+      <div className="w-full border-t border-gray-700 pt-6 text-center text-xs text-gray-400">
+        &copy; 2025@ejtechagency. All rights reserved.{" "}
+        <Link to="" className="text-orange-500 text-xs hover:underline">
+          Privacy Policy
+        </Link>
       </div>
     </motion.footer>
   );
