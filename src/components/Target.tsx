@@ -15,7 +15,7 @@ const Target: React.FC<Props> = ({}: Props) => {
   return (
     <section className="w-full bg-black pt-40 flex flex-col">
       {/* Sticky Header */}
-      <div className="sticky top-0 bg-black/0 z-10 text-center py-16">
+      <div className="sticky top-0 bg-black/0 z-10  bg-black  backdrop-blur-sm text-center py-16">
         <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
           Our Target Audience
         </h2>
