@@ -1,4 +1,4 @@
-import { HomeIcon, PackageIcon, PhoneIcon, Menu } from "lucide-react";
+import { HomeIcon, PackageIcon, PhoneIcon, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -32,18 +32,18 @@ const NavBar: React.FC = () => {
           animate={{ y: 0 }}
           exit={{ y: -100 }}
           transition={{ type: "spring", stiffness: 130, damping: 20 }}
-          className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm bg-[#17083a]/80 border-b border-white/10 px-6 md:px-12 py-3 flex items-center justify-between"
+          className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm  border-b border-white/10 px-6 md:px-12 py-3 flex items-center justify-between"
         >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <motion.div
-              className="w-10 h-10 bg-orange-600 rounded-lg flex justify-center items-center shadow-neonSm"
+              className="w-10 h-10  rounded-lg flex justify-center items-center"
               whileHover={{ scale: 1.1 }}
             >
-              <span className="text-black font-bold text-lg">E</span>
+              <img src="/logo.png" />
             </motion.div>
-            <span className="text-white font-semibold tracking-wide text-lg">
-              EJ-TECH
+            <span className="text-white hidden md:block font-semibold tracking-wide text-md">
+              EJTECH
             </span>
           </Link>
 
@@ -53,7 +53,7 @@ const NavBar: React.FC = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="relative group font-medium text-white transition-colors duration-300"
+                className="relative group font-medium text-white transition-colors text-xs duration-300"
               >
                 {link.name}
                 <motion.span
@@ -67,16 +67,13 @@ const NavBar: React.FC = () => {
             {/* Phone CTA */}
             <a
               href="tel:+2349054783583"
-              className="flex items-center gap-2 text-sm transition-colors duration-300"
+              className="flex items-center  text-orange-600 bg-orange-400/30  px-4 border-orange-600 p-2 rounded-full gap-2 text-sm transition-colors duration-300"
             >
-              <motion.div
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-[#0f0524] text-white hover:bg-orange-600"
-                whileHover={{ scale: 1.2 }}
-              >
+              <motion.div whileHover={{ scale: 1.2 }}>
                 <PhoneIcon size={16} />
               </motion.div>
-              <span className="hidden md:inline font-semibold text-white hover:text-orange-600">
-                +2349054783583
+              <span className="hidden md:inline text-xs  font-semibold  hover:text-orange-600">
+                Call Us
               </span>
             </a>
           </div>
@@ -85,9 +82,13 @@ const NavBar: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 rounded-md bg-white/10 hover:bg-white/20 transition-all duration-300"
+              className="p-2 rounded-md  transition-all duration-300"
             >
-              <Menu size={20} className="text-white" />
+              {mobileOpen ? (
+                <X size={20} className="text-white" />
+              ) : (
+                <Menu size={20} className="text-white" />
+              )}
             </button>
 
             {/* Mobile Menu */}
@@ -97,13 +98,13 @@ const NavBar: React.FC = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="absolute top-full left-0 w-full bg-[#17083a]/95 backdrop-blur-md flex flex-col items-center gap-6 py-6"
+                  className="absolute top-full left-0 w-full bg-black backdrop-blur-md flex flex-col items-center text-xs gap-6 py-6"
                 >
                   {navLinks.map((link) => (
                     <Link
                       key={link.name}
                       to={link.path}
-                      className="text-lg font-semibold text-white hover:text-orange-600 transition-colors duration-300"
+                      className="text-lg font-semibold text-white hover:text-orange-600 transition-colors duration-300 text-xs"
                       onClick={() => setMobileOpen(false)}
                     >
                       {link.name}
@@ -111,7 +112,7 @@ const NavBar: React.FC = () => {
                   ))}
                   <a
                     href="tel:+2349054783583"
-                    className="flex items-center gap-2 text-white hover:text-orange-600"
+                    className="flex items-center px-4 p-2 bg-orange-600 rounded-full text-xs gap-2 text-white hover:text-orange-600"
                   >
                     <PhoneIcon size={18} />
                     Call Us
