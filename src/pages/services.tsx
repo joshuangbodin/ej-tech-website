@@ -14,9 +14,9 @@ const ServicesPage: React.FC<Props> = () => {
     <section className="w-full min-h-screen px-6 md:px-12 py-20 bg-black flex flex-col items-center ">
       {/* Top Section */}
       <div className="w-full max-w-7xl mb-12 text-center">
-        <p className=" mb-2">Home / Services</p>
-        <h1 className="text-4xl md:text-5xl font-extrabold ">Our Services</h1>
-        <p className=" mt-2 md:text-lg">
+        <p className=" mb-2 text-xs">Home / Services</p>
+        <h1 className="text-2xl md:text-5xl font-extrabold ">Our Services</h1>
+        <p className=" mt-2 text-xs leading-[2] md:text-lg">
           Explore the wide range of services we offer to help your business
           grow.
         </p>
@@ -29,7 +29,7 @@ const ServicesPage: React.FC<Props> = () => {
           placeholder="Search services..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+          className="w-full px-4 py-3 bg-gray-900 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
         />
       </div>
 
@@ -57,8 +57,8 @@ const ServicesPage: React.FC<Props> = () => {
 
               {/* Content */}
               <div className="p-6 flex flex-col gap-3">
-                <h3 className="text-xl font-bold ">{service.name}</h3>
-                <p className=" text-sm md:text-base line-clamp-4">
+                <h3 className="text-sm md:text-xl font-bold ">{service.name}</h3>
+                <p className=" text-xs md:text-sm leading-[2] line-clamp-4">
                   {service.more?.join(", ")}
                 </p>
               </div>
