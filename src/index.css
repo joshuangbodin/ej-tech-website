@@ -1,120 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* ---------------------------------------------
+   FONT IMPORTS
+---------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap");
+
+/* ---------------------------------------------
+   TAILWIND BASE
+---------------------------------------------- */
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
 
-*{
-    font-family: "Alegreya" , sans-serif;
-    font-size: 18px;
-    scroll-behavior: smooth;
-}
-body{
-    overflow-x: hidden;
-    
-}
-
-
-
-/*swiper styles*/
-.img{
-    @apply h-72 md:h-80 object-cover w-full rounded-xl ;
+/* ---------------------------------------------
+   GLOBAL RESET & TYPOGRAPHY
+---------------------------------------------- */
+* {
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  scroll-behavior: smooth;
 }
 
-.img1{
-    @apply h-72 md:h-80 object-center object-cover w-full rounded-xl ;
+body {
+  @apply bg-[#0b0018] text-white overflow-x-hidden;
 }
 
-
-
-
-.swiper-wrapper{
-    width:50%
+a {
+  @apply transition-colors duration-300;
 }
 
-.swiper-button-prev, .swiper-button-next{
-    background-color: rgba(216, 99, 4, .1);
-    width: 25px !important;
-    height: 25px !important;
-    border-radius: 50% ;
-    
-
-}
-.swiper-button-prev:after , .swiper-button-next:after{
-    font-size: 18px !important;
-    font-weight: 300 !important;
-    color: white;
+/* Hide scrollbar for clean UI */
+::-webkit-scrollbar {
+  display: none;
 }
 
-.swiper-pagination-bullet{
-    background: rgb(216, 99, 4) !important;
+/* ---------------------------------------------
+   IMAGES & HERO MEDIA
+---------------------------------------------- */
+.img,
+.img1,
+.img-reveal {
+  @apply h-72 md:h-96 w-full object-cover rounded-xl;
+  opacity: 0;
+  transform: scale(0.9) rotate(4deg);
+  animation: imgAppear 1s ease-out forwards;
+  animation-timeline: view();
 }
 
-
-
-
-
-/*dissapearing text*/
-
-.textbox{
-    @apply w-full h-72 md:h-80 p-3  gap-4 flex flex-col capitalize justify-center md:w-1/2 md:order-1 text-gray-600 font-medium  text-2xl md:text-4xl;
-    opacity: 0;
-    scale: 80%;
-    animation:appear linear forwards;
-    animation-timeline: view(700px 100px) ;
-
-}
-.inf{
-    @apply w-full md:w-1/2 text-gray-900 h-56 lg:w-1/3 flex flex-col  gap-3 justify-center  items-start;
-    opacity: 0;
-    scale: 80%;
-    animation:appear linear forwards;
-    animation-timeline: view(700px 100px) ;
-}
-.ta{
-    @apply list-disc flex flex-col gap-2 text-lg text-gray-900;
-    opacity: 0;
-    scale: 80%;
-    animation:appear linear forwards ;
-    
-    animation-timeline: view(700px 100px) ;
-}
-@keyframes appear {
-    to{
-        opacity: 100;
-        scale: 100%;
-    }
+@keyframes imgAppear {
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
 
-/*imgshw*/
-.imgshw{
-    @apply   object-cover md:h-[700px] md:w-full;
-   
+/* ---------------------------------------------
+   SECTIONS
+---------------------------------------------- */
+.section {
+  @apply py-24 md:py-32 w-full max-w-7xl mx-auto px-6 md:px-10;
 }
 
-
-/*scrollbar*/
-
-::-webkit-scrollbar{
-    display:none;
+.section-title {
+  @apply text-3xl md:text-5xl font-semibold tracking-tight text-white mb-6;
 }
 
-
-/*imgskew*/
-
-.imgSkew{
-    transform: rotate(30deg ) ;
-
-    transform-style: preserve-3d;
-    scale:80%;
-    animation: img linear forwards;
-    animation-timeline: view() ;
-    
+.section-sub {
+  @apply text-lg md:text-xl text-gray-300 max-w-2xl;
 }
 
-@keyframes img {
-    to{
-        transform: rotate(5deg);
-        scale:100%;
-    }
+/* ---------------------------------------------
+   SCROLL ANIMATION UTILS
+---------------------------------------------- */
+.appear,
+.appear-up,
+.appear-fade {
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  animation: fadeUp 1s ease forwards;
+  animation-timeline: view(600px 150px);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------------------------------------------
+   SWIPER
+---------------------------------------------- */
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: rgba(255, 122, 0, 0.15);
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 9999px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: #fff;
+}
+
+.swiper-pagination-bullet {
+  background: #ff7a1a !important;
+}
+
+/* ---------------------------------------------
+   BUTTONS & CTAs
+   (omit custom shadows; apply in JSX)
+---------------------------------------------- */
+.btn-primary {
+  @apply bg-orange-600 text-black font-semibold px-6 py-3 rounded-lg hover:scale-105 hover:bg-orange-500 transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply border border-orange-600 text-orange-600 px-6 py-3 rounded-lg hover:bg-orange-600 hover:text-black transition-all duration-300;
+}
+
+/* ---------------------------------------------
+   CODE STYLING
+---------------------------------------------- */
+code {
+  font-family: "JetBrains Mono", monospace;
+  @apply bg-purple-900/40 px-2 py-1 rounded-md text-orange-300;
+}
+
+/* ---------------------------------------------
+   CARDS / SURFACE ELEMENTS
+   (omit custom shadows; apply in JSX)
+---------------------------------------------- */
+.card {
+  @apply bg-[#17083a]/60 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:scale-105;
+}
+
+/* ---------------------------------------------
+   UTILITIES FOR MOTION & TRANSITIONS
+---------------------------------------------- */
+.motion-fade {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.motion-scale {
+  transform: scale(0.95);
+  animation: scaleUp 0.8s ease forwards;
+}
+
+@keyframes scaleUp {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ---------------------------------------------
+   TYPOGRAPHY ACCENTS
+---------------------------------------------- */
+.text-accent {
+  color: #ff7a1a;
+}
+
+.text-muted {
+  color: #c0c0c0;
 }

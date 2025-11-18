@@ -1,56 +1,128 @@
-import { HomeIcon, PackageIcon,  PhoneIcon } from "lucide-react";
-import { useState } from "react";
+import { HomeIcon, PackageIcon, PhoneIcon, Menu } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
-interface Props {}
+const navLinks = [
+  { name: "Home", path: "/", icon: <HomeIcon /> },
+  { name: "Services", path: "/services", icon: <PackageIcon /> },
+];
 
-const NavBar = ({}: Props) => {
-  const [top, setTop] = useState(
-    "w-full  fixed top-0 flex justify-between z-50 font-semibold  p-4 h-[80px] text-purple-950 text-lg bg-slate-50 border-b  transition-all ease-in-out delay-700 "
-  );
-  let cp = window.pageYOffset;
-  window.addEventListener("scroll", () => {
-    let pp = window.pageYOffset;
-    if (cp < pp) {
-      setTop(
-        "w-full  fixed top-[-80px] flex justify-between z-50 font-semibold  p-4 h-[80px] text-purple-950 text-lg bg-slate-50 border-b  "
-      );
-    } else {
-      setTop(
-        "w-full  fixed top-0 flex justify-between z-50 font-semibold  p-4 h-[80px] text-purple-950 text-lg bg-slate-50 border-b  transition-all ease-in-out delay-300 "
-      );
-    }
-  });
+const NavBar: React.FC = () => {
+  const [show, setShow] = useState(true);
+  const [lastScroll, setLastScroll] = useState(0);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Scroll hide/show effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY;
+      setShow(current < lastScroll || current < 50);
+      setLastScroll(current);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScroll]);
+
   return (
-    <div>
-      <nav className={top}>
-        <span className="h-full flex justify-center items-center ">
-          <img src="logo ejtech.png" className="h-[50px]" alt="" />
-          <h3 >EJ-TECH</h3>
-        </span>
-
-        <span className="flex gap-4 pt-1">
-          <Link className="flex text-md hover:text-orange-600 mr-2" to={"/"}>
-            <span className="hidden md:flex">Home</span><span className="flex md:hidden"><HomeIcon/></span>
-          </Link>
-          <Link className="text-md hover:text-orange-600" to={"/services"}>
-          <span className="hidden md:flex">Services</span><span className="flex md:hidden"><PackageIcon/></span>
-          </Link>
-        </span>
-
-        <Link
-          className="flex md:pr-12 gap-2 hover:text-orange-600"
-          to={"tel:+2349054783583"}
+    <AnimatePresence>
+      {show && (
+        <motion.nav
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          exit={{ y: -100 }}
+          transition={{ type: "spring", stiffness: 130, damping: 20 }}
+          className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm bg-[#17083a]/80 border-b border-white/10 px-6 md:px-12 py-3 flex items-center justify-between"
         >
-          <span className="w-8 h-8 bg-purple-950 flex justify-center hover:bg-orange-600 transition-all ease-linear delay-300 items-center text-white rounded-full ">
-            <PhoneIcon />
-          </span>
-          <strong className="font-semibold hidden md:flex">
-            +2349054783583
-          </strong>
-        </Link>
-      </nav>
-    </div>
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3">
+            <motion.div
+              className="w-10 h-10 bg-orange-600 rounded-lg flex justify-center items-center shadow-neonSm"
+              whileHover={{ scale: 1.1 }}
+            >
+              <span className="text-black font-bold text-lg">E</span>
+            </motion.div>
+            <span className="text-white font-semibold tracking-wide text-lg">
+              EJ-TECH
+            </span>
+          </Link>
+
+          {/* Desktop Links */}
+          <div className="hidden md:flex gap-10 items-center">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className="relative group font-medium text-white transition-colors duration-300"
+              >
+                {link.name}
+                <motion.span
+                  layoutId="underline"
+                  className="absolute left-0 -bottom-1 h-0.5 bg-orange-600 rounded-full opacity-0 group-hover:opacity-100"
+                  transition={{ type: "spring", stiffness: 120 }}
+                />
+              </Link>
+            ))}
+
+            {/* Phone CTA */}
+            <a
+              href="tel:+2349054783583"
+              className="flex items-center gap-2 text-sm transition-colors duration-300"
+            >
+              <motion.div
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-[#0f0524] text-white hover:bg-orange-600"
+                whileHover={{ scale: 1.2 }}
+              >
+                <PhoneIcon size={16} />
+              </motion.div>
+              <span className="hidden md:inline font-semibold text-white hover:text-orange-600">
+                +2349054783583
+              </span>
+            </a>
+          </div>
+
+          {/* Mobile Hamburger */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="p-2 rounded-md bg-white/10 hover:bg-white/20 transition-all duration-300"
+            >
+              <Menu size={20} className="text-white" />
+            </button>
+
+            {/* Mobile Menu */}
+            <AnimatePresence>
+              {mobileOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="absolute top-full left-0 w-full bg-[#17083a]/95 backdrop-blur-md flex flex-col items-center gap-6 py-6"
+                >
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.name}
+                      to={link.path}
+                      className="text-lg font-semibold text-white hover:text-orange-600 transition-colors duration-300"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                  <a
+                    href="tel:+2349054783583"
+                    className="flex items-center gap-2 text-white hover:text-orange-600"
+                  >
+                    <PhoneIcon size={18} />
+                    Call Us
+                  </a>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </motion.nav>
+      )}
+    </AnimatePresence>
   );
 };
 
