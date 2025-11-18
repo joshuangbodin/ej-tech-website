@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { services } from "../data/home";
+import { services } from "../data/home.d";
 
 type Props = {};
 
@@ -11,7 +11,7 @@ const ServicesPage: React.FC<Props> = () => {
   );
 
   return (
-    <section className="w-full min-h-screen px-6 md:px-12 py-20 flex flex-col items-center ">
+    <section className="w-full min-h-screen px-6 md:px-12 py-20 bg-black flex flex-col items-center ">
       {/* Top Section */}
       <div className="w-full max-w-7xl mb-12 text-center">
         <p className=" mb-2">Home / Services</p>

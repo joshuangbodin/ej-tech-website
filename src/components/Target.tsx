@@ -1,45 +1,61 @@
 import React from "react";
-import { ta } from "../data/home";
+import { motion } from "framer-motion";
+import { targetAudience } from "../data/home.d";
 
 type Props = {};
 
 const Target: React.FC<Props> = ({}: Props) => {
+  // Split into panels of 3 items each
+  const panelSize = 3;
+  const panels = [];
+  for (let i = 0; i < targetAudience.length; i += panelSize) {
+    panels.push(targetAudience.slice(i, i + panelSize));
+  }
+
   return (
-    <section className="w-full mt-32 px-6 md:px-12 flex flex-col items-center">
-      {/* Section Header */}
-      <div className="text-center max-w-2xl mb-16">
-        <h3 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+    <section className="w-full bg-black pt-40 flex flex-col">
+      {/* Sticky Header */}
+      <div className="sticky top-0 bg-black/0 z-10 text-center py-16">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
           Our Target Audience
-        </h3>
-        <p className="text-gray-400 mt-4 text-lg md:text-xl">
-          We serve businesses and individuals who want to make an impact in the digital space.
+        </h2>
+        <p className="text-gray-400 mt-4 text-md md:text-lg max-w-2xl mx-auto">
+          We collaborate with a wide range of clients aiming to elevate their
+          digital presence and make a lasting impact.
         </p>
       </div>
 
-      {/* Split layout */}
-      <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-7xl">
-        {/* Image */}
-        <div className="w-full md:w-1/3 flex justify-center">
-          <img
-            src="GRAPHICSDDESIGN.png"
-            alt="Target Audience"
-            className="w-4/5 md:w-full rounded-2xl shadow-lg shadow-purple-900/30"
-          />
-        </div>
-
-        {/* Target List */}
-        <div className="flex-1">
-          <ul className="flex flex-col gap-4 text-gray-300 text-lg md:text-xl">
-            {ta.map((taitem, index) => (
-              <li
-                key={index}
-                className="relative pl-6 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-orange-500 before:rounded-full"
-              >
-                {taitem}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* Panels */}
+      <div className="relative">
+        {panels.map((panel, idx) => {
+          const fromLeft = idx % 2 === 0; // alternate animation
+          return (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, x: fromLeft ? -100 : 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ type: "spring", stiffness: 80, damping: 18 }}
+              className="h-screen flex flex-col md:flex-row items-center justify-center gap-8 px-6 md:px-16 bg-black/10"
+            >
+              {panel.map((audience) => (
+                <motion.div
+                  key={audience.id}
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-gray-900/60 border-gray-800/60 border backdrop-blur-md rounded-2xl px-6 py-6 md:w-1/3 text-center h-72 w-full shadow-lg shadow-black/30 cursor-default flex flex-col items-center justify-center gap-2"
+                >
+                  <div className="text-orange-500 mb-2">{audience.logo}</div>
+                  <h3 className="text-lg md:text-xl font-bold text-white">
+                    {audience.name}
+                  </h3>
+                  <p className="text-gray-300 text-xs md:text-sm">
+                    {audience.description}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

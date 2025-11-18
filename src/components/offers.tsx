@@ -1,17 +1,18 @@
-import { services } from "../data/home";
+import { services } from "../data/home.d";
 
 type Props = {};
 
 const Offers = ({}: Props) => {
   return (
-    <section className="w-full mt-24 px-6 md:px-12 flex flex-col items-center">
+    <section className="w-full bg-black pt-24 px-6 md:px-12 flex flex-col items-center">
       {/* Section Header */}
       <div className="text-center max-w-2xl mb-16">
         <h3 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
           Our Services
         </h3>
         <p className="text-gray-400 mt-4 text-lg md:text-xl">
-          Delivering innovative solutions to empower your business in the digital era.
+          Delivering innovative solutions to empower your business in the
+          digital era.
         </p>
       </div>
 
@@ -20,7 +21,7 @@ const Offers = ({}: Props) => {
         {services.map((item) => (
           <div
             key={item.index}
-            className="bg-[#17083a]/70 backdrop-blur-md rounded-2xl p-8 flex flex-col justify-start items-start transition-all duration-300 hover:scale-105 hover:bg-[#220a56]/80 cursor-pointer"
+            className="bg-gray-900  border border-gray-800 backdrop-blur-md rounded-2xl p-8 flex flex-col justify-start items-start transition-all duration-300 hover:scale-105  cursor-pointer"
           >
             <p className="text-orange-500 text-5xl font-extrabold mb-4">
               {item.index}
