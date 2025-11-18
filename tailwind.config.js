@@ -10,9 +10,9 @@ export default {
       colors: {
         brand: {
           // core background shades
-          purple: "#0f0524",
-          purpleMid: "#17083a",
-          purpleLight: "#220a56",
+          purple: "#000",
+          purpleMid: "#000",
+          purpleLight: "#000",
         },
         accent: {
           orange: "#ff7a00",

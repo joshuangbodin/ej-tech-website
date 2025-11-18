@@ -18,9 +18,9 @@ const sliderImages = [
 
 const Slider: React.FC<Props> = ({}: Props) => {
   return (
-    <div className="grid grid-cols-2 gap-4 w-full">
+    <div className="grid grid-cols-2 gap-4  w-full">
       {sliderImages.map((images, index) => (
-        <div key={index} className="w-full h-72 md:h-80 rounded-xl overflow-hidden">
+        <div key={index} className="w-full h-40 md:h-40 rounded-xl overflow-hidden">
           <Swiper
             modules={[Autoplay, Pagination, Navigation, EffectFade]}
             effect="fade"

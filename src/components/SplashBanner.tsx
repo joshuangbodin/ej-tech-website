@@ -58,19 +58,19 @@ const SplashBanner: React.FC<Props> = ({}: Props) => {
         <div className="flex animate-marquee gap-16 whitespace-nowrap">
           {services.map((service, idx) => (
             <div key={idx} className="flex items-center gap-2 px-4 py-2 bg-gray-900  border border-gray-800 rounded-full   text-white text-sm md:text-base">
-              <span className="flex gap-1 text-orange-500">
+              <span className="flex gap-1 text-xs text-orange-500">
                 {iconMap[service.name]}
               </span>
-              <span>{service.name}</span>
+              <span className="text-xs">{service.name}</span>
             </div>
           ))}
           {/* Repeat for continuous scroll */}
           {services.map((service, idx) => (
             <div key={"repeat-" + idx} className="flex items-center gap-2 px-4 py-2 bg-gray-900  border border-gray-800 rounded-full  text-white text-sm md:text-base">
-              <span className="flex gap-1 text-orange-500">
+              <span className=" text-xs flex gap-1 text-orange-500">
                 {iconMap[service.name]}
               </span>
-              <span>{service.name}</span>
+              <span className="text-xs">{service.name}</span>
             </div>
           ))}
         </div>
