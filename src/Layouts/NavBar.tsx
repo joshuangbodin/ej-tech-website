@@ -13,7 +13,6 @@ const NavBar: React.FC = () => {
   const [lastScroll, setLastScroll] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Scroll hide/show effect
   useEffect(() => {
     const handleScroll = () => {
       const current = window.scrollY;
@@ -32,7 +31,7 @@ const NavBar: React.FC = () => {
           animate={{ y: 0 }}
           exit={{ y: -100 }}
           transition={{ type: "spring", stiffness: 130, damping: 20 }}
-          className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm  border-b border-white/10 px-6 md:px-12 py-3 flex items-center justify-between"
+          className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm  border-b bg-black/10 border-white/10 px-6 md:px-20 py-3 flex items-center justify-between"
         >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
@@ -67,12 +66,12 @@ const NavBar: React.FC = () => {
             {/* Phone CTA */}
             <a
               href="tel:+2349054783583"
-              className="flex items-center  text-orange-600 bg-orange-400/30  px-4 border-orange-600 p-2 rounded-full gap-2 text-sm transition-colors duration-300"
+              className="flex items-center hover:scale-95  text-white bg-orange-600/70  px-4 border border-orange-500/90 p-2 rounded-xl gap-2 text-sm transition-colors duration-300"
             >
-              <motion.div whileHover={{ scale: 1.2 }}>
+              <motion.div >
                 <PhoneIcon size={16} />
               </motion.div>
-              <span className="hidden md:inline text-xs  font-semibold  hover:text-orange-600">
+              <span className="hidden md:inline text-xs  font-semibold ">
                 Call Us
               </span>
             </a>
@@ -98,13 +97,13 @@ const NavBar: React.FC = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="absolute top-full left-0 w-full bg-black backdrop-blur-md flex flex-col items-center text-xs gap-6 py-6"
+                  className="absolute top-full left-0 w-full bg-black/95 backdrop-blur-md flex flex-col items-center text-xs gap-6 py-6"
                 >
                   {navLinks.map((link) => (
                     <Link
                       key={link.name}
                       to={link.path}
-                      className="text-lg font-semibold text-white hover:text-orange-600 transition-colors duration-300 text-xs"
+                      className="font-semibold text-white hover:text-orange-600 transition-colors duration-300 text-xs"
                       onClick={() => setMobileOpen(false)}
                     >
                       {link.name}
@@ -112,7 +111,7 @@ const NavBar: React.FC = () => {
                   ))}
                   <a
                     href="tel:+2349054783583"
-                    className="flex items-center px-4 p-2 bg-orange-600 rounded-full text-xs gap-2 text-white hover:text-orange-600"
+                    className="flex items-center  text-white bg-orange-600/70  px-4 border border-orange-500/90 p-2 rounded-xl gap-2 text-sm transition-colors duration-300"
                   >
                     <PhoneIcon size={18} />
                     Call Us
