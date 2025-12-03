@@ -30,7 +30,7 @@ const AboutUs: React.FC<Props> = ({}: Props) => {
           </h2>
 
           {/* Description */}
-          <p className="text-gray-300 text-xs leading-[2] md:text-md mb-6">
+          <p className="text-gray-300 text-xs leading-[2] md:text-base mb-6">
             We provide modern, effective, and visually striking web development
             and graphic design solutions that increase engagement, growth, and
             brand visibility.

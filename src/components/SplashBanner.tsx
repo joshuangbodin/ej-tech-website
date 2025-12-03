@@ -54,7 +54,7 @@ const SplashBanner: React.FC<Props> = ({}: Props) => {
       </h1>
 
       {/* Subtext */}
-      <p className="text-gray-300 text-xs leading-[2] md:text-md max-w-2xl text-center mb-8">
+      <p className="text-gray-300 text-xs leading-[2] md:text-base max-w-2xl text-center mb-8">
         We craft modern web applications, stunning graphics, and innovative
         digital solutions that scale your business, boost engagement, and
         enhance brand identity.

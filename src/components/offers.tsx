@@ -29,7 +29,7 @@ const Offers = ({}: Props) => {
             <h4 className="text-white text-xl md:text-2xl font-bold mb-4">{item.name}</h4>
             <ul className="list-disc list-inside text-gray-400 flex flex-col gap-2">
               {item.more?.map((point, idx) => (
-                <li className="text-xs md:text-md" key={idx}>{point}</li>
+                <li className="text-xs md:text-base" key={idx}>{point}</li>
               ))}
             </ul>
           </div>

@@ -16,26 +16,26 @@ const ContactUs: React.FC<Props> = ({}: Props) => {
           </h3>
 
           <input
-            className="h-12 px-4 rounded-lg bg-gray-800/60 border border-gray-700 text-white placeholder-gray-400 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all duration-300 shadow-sm"
+            className="h-12 px-4  text-xs md:text-base rounded-lg bg-gray-800/60 border border-gray-700 text-white placeholder-gray-400 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all duration-300 shadow-sm"
             type="text"
             placeholder="Your Name"
             required
           />
           <input
-            className="h-12 px-4 rounded-lg bg-gray-800/60 border border-gray-700 text-white placeholder-gray-400 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all duration-300 shadow-sm"
+            className="h-12 px-4  text-xs md:text-base rounded-lg bg-gray-800/60 border border-gray-700 text-white placeholder-gray-400 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all duration-300 shadow-sm"
             type="email"
             placeholder="Your Email"
             required
           />
           <textarea
-            className="h-32 px-4 py-2 rounded-lg bg-gray-800/60 border border-gray-700 text-white placeholder-gray-400 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all duration-300 resize-none shadow-sm"
+            className="h-32 px-4 text-xs md:text-base py-2 rounded-lg bg-gray-800/60 border border-gray-700 text-white placeholder-gray-400 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all duration-300 resize-none shadow-sm"
             placeholder="Write Your Message"
             required
           />
 
           <button
             type="submit"
-            className="h-12 bg-orange-600/70 text-white font-semibold rounded-xl hover:bg-gray-900 hover:text-orange-500 border border-orange-500/60 transition-all duration-300 shadow-md"
+            className="h-12 bg-orange-600/70 text-white text-xs md:text-base font-semibold rounded-xl hover:bg-gray-900 hover:text-orange-500 border border-orange-500/60 transition-all duration-300 shadow-md"
           >
             Submit
           </button>
