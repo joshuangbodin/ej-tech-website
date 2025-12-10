@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { services } from "../data/home.d";
 
-type Props = {};
-
-const ServicesPage: React.FC<Props> = () => {
+const ServicesPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredServices = services.filter((service) =>
@@ -11,66 +10,99 @@ const ServicesPage: React.FC<Props> = () => {
   );
 
   return (
-    <section className="w-full min-h-screen px-6 md:px-12 py-20 bg-black flex flex-col items-center ">
-      {/* Top Section */}
-      <div className="w-full max-w-7xl mb-12 text-center">
-        <p className=" mb-2 text-xs">Home / Services</p>
-        <h1 className="text-2xl md:text-5xl font-extrabold ">Our Services</h1>
-        <p className=" mt-2 text-xs leading-[2] md:text-lg">
-          Explore the wide range of services we offer to help your business
-          grow.
-        </p>
-      </div>
+    <>
+      {/* 🔥 Page SEO */}
+      <Helmet>
+        <title>Our Services — EjTech Agency</title>
 
-      {/* Search Bar */}
-      <div className="w-full max-w-4xl mb-12">
-        <input
-          type="text"
-          placeholder="Search services..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full px-4 py-3 bg-gray-900 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+        <meta
+          name="description"
+          content="Explore EjTech Agency’s wide range of professional services including Web Development, Branding, UI/UX, Digital Marketing, SEO, and AI Automation."
         />
-      </div>
 
-      {/* Service Cards */}
-      <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredServices.length > 0 ? (
-          filteredServices.map((service) => (
-            <a
-              key={service.name}
-              href="#"
-              className=" rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group"
-            >
-              {/* Image */}
-              <div className="h-48 w-full overflow-hidden">
-                <img
-                  src={
-                    service.more[0]?.includes("Web")
-                      ? "code3.jpg"
-                      : "graphics1.jpg"
-                  }
-                  alt={service.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+        <meta
+          name="keywords"
+          content="EjTech Agency services, web development services, branding Nigeria, UI/UX agency, AI automation services, Lagos software agency"
+        />
 
-              {/* Content */}
-              <div className="p-6 flex flex-col gap-3">
-                <h3 className="text-sm md:text-xl font-bold ">{service.name}</h3>
-                <p className=" text-xs md:text-sm leading-[2] line-clamp-4">
-                  {service.more?.join(", ")}
-                </p>
-              </div>
-            </a>
-          ))
-        ) : (
-          <p className="text-gray-500 col-span-full text-center">
-            No services found.
+        <link rel="canonical" href="https://ejtechagency.com/services" />
+
+        <meta property="og:title" content="EjTech Agency Services" />
+        <meta
+          property="og:description"
+          content="We offer modern design, development, branding, and AI solutions to help your business grow."
+        />
+        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:url" content="https://ejtechagency.com/services" />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
+      {/* 🔥 Page Content */}
+      <section className="w-full min-h-screen px-6 md:px-12 py-20 bg-black flex flex-col items-center ">
+        {/* Top Section */}
+        <div className="w-full max-w-7xl mb-12 text-center">
+          <p className="mb-2 text-xs">Home / Services</p>
+          <h1 className="text-2xl md:text-5xl font-extrabold">Our Services</h1>
+          <p className="mt-2 text-xs leading-[2] md:text-lg">
+            Explore the wide range of services we offer to help your business
+            grow.
           </p>
-        )}
-      </div>
-    </section>
+        </div>
+
+        {/* Search Bar */}
+        <div className="w-full max-w-4xl mb-12">
+          <input
+            type="text"
+            placeholder="Search services..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-4 py-3 bg-gray-900 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+          />
+        </div>
+
+        {/* Service Cards */}
+        <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredServices.length > 0 ? (
+            filteredServices.map((service) => (
+              <a
+                key={service.name}
+                href={"#"} // 🟣 update once you have /services/:id setup
+                className="rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group"
+              >
+                {/* Image */}
+                <div className="h-48 w-full overflow-hidden">
+                  <img
+                    src={
+                      service.more[0]?.includes("Web")
+                        ? "code3.jpg"
+                        : "graphics1.jpg"
+                    }
+                    alt={service.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex flex-col gap-3">
+                  <h3 className="text-sm md:text-xl font-bold">
+                    {service.name}
+                  </h3>
+                  <p className="text-xs md:text-sm leading-[2] line-clamp-4">
+                    {service.more?.join(", ")}
+                  </p>
+                </div>
+              </a>
+            ))
+          ) : (
+            <p className="text-gray-500 col-span-full text-center">
+              No services found.
+            </p>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 
